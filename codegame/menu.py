@@ -21,11 +21,11 @@ class Menu:
 
         while True:
             self.window.blit(source=self.surf, dest=self.rect)
-            self.menu_text(100, 'DEATH', COLOR_TITLE, ((WIN_WIDTH/2), 100))
-            self.menu_text(100, 'SHOOTER', COLOR_TITLE, ((WIN_WIDTH/2), 200))
+            self.menu_text(120, 'DEATH', COLOR_TITLE, ((WIN_WIDTH/2), 125))
+            self.menu_text(120, 'SHOOTER', COLOR_TITLE, ((WIN_WIDTH/2), 250))
             
             for i in range(len(MENU_OPTION)):
-                self.menu_text(60, MENU_OPTION[i], COLOR_MENU, ((WIN_WIDTH/2), 500 + 100 * i))
+                self.menu_text(70, MENU_OPTION[i], COLOR_MENU, ((WIN_WIDTH/2), 570 + 100 * i))
 
 
             pygame.display.flip()
