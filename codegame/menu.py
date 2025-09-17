@@ -4,7 +4,7 @@
 from tkinter.font import Font
 import pygame
 
-from codegame.const import WIN_WIDTH
+from codegame.const import COLOR_MENU, COLOR_TITLE, MENU_OPTION, WIN_WIDTH
 
 class Menu:
     def __init__(self, window):
@@ -17,11 +17,17 @@ class Menu:
     def run(self):
         pygame.mixer.music.load('./assets/bgmusic.mp3')
         pygame.mixer.music.play(loops=-1, start=1.5, fade_ms=0)
+        pygame.mixer.music.set_volume(0.2)
 
         while True:
             self.window.blit(source=self.surf, dest=self.rect)
-            self.menu_text(100, 'DEATH', (139, 0, 0), ((WIN_WIDTH/2), 100))
-            self.menu_text(100, 'SHOOTER', (139, 0, 0), ((WIN_WIDTH/2), 200))
+            self.menu_text(100, 'DEATH', COLOR_TITLE, ((WIN_WIDTH/2), 100))
+            self.menu_text(100, 'SHOOTER', COLOR_TITLE, ((WIN_WIDTH/2), 200))
+            
+            for i in range(len(MENU_OPTION)):
+                self.menu_text(60, MENU_OPTION[i], COLOR_MENU, ((WIN_WIDTH/2), 500 + 100 * i))
+
+
             pygame.display.flip()
             
             for event in pygame.event.get():

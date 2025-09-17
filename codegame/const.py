@@ -1,2 +1,15 @@
+#C
+COLOR_TITLE = (139, 0, 0)
+COLOR_MENU = (255, 255, 255)
+
+#M
+MENU_OPTION = (
+    'NEW GAME',
+    'SETTINGS',
+    'EXIT'
+)
+
+
+# W
 WIN_WIDTH = 1600
 WIN_HEIGHT = 920
