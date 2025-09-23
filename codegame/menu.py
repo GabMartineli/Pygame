@@ -12,12 +12,10 @@ class Menu:
         self.surf = pygame.image.load('./assets/Battleground4.png')
         self.rect = self.surf.get_rect(left=0,top=0)
         
-
-        
     def run(self):
         pygame.mixer.music.load('./assets/bgmusic.mp3')
         pygame.mixer.music.play(loops=-1, start=1.5, fade_ms=0)
-        pygame.mixer.music.set_volume(0.2)
+        pygame.mixer.music.set_volume(0.3)
 
         while True:
             self.window.blit(source=self.surf, dest=self.rect)
@@ -36,7 +34,6 @@ class Menu:
                     pygame.quit() # fechar janela
                     quit() # fechar jogo
 
-        
             pass
 
     def menu_text(self, text_size: int, text: str, text_color: tuple, text_center_pos: tuple):
