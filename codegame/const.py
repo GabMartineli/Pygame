@@ -1,6 +1,11 @@
 #C
 COLOR_TITLE = (139, 0, 0)
 COLOR_MENU = (255, 255, 255)
+CHAR_OPTION = (
+    'BONGO',
+    'MONGO',
+    'LONGO'
+)
 
 #M
 MENU_OPTION = (
