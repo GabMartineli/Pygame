@@ -1,10 +1,10 @@
 #!/usr/bin/python
 # -*- coding: utf-8 -*-
 
-from codegame.entity1 import Entity1
+from codegame.entity import Entity
 
 
-class Player(Entity1):
+class Player(Entity):
     def __init__(self):
         self.vida = None
         self.dano = None

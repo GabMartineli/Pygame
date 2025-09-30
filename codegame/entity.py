@@ -1,7 +1,7 @@
 #!/usr/bin/python
 # -*- coding: utf-8 -*-
 
-class Entity1:
+class Entity:
     def __init__(self, name, surf, rect):
         self.name = name
         self.surf = surf

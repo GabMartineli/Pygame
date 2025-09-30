@@ -10,7 +10,7 @@ class Menu_char(Menu):
     def __init__(self, window):
         super().__init__(window)
         self.window = window
-        self.surf = pygame.image.load('./assets/Battleground4.png')
+        self.surf = pygame.image.load('./assets/img/Battleground4.png').convert()
         self.rect = self.surf.get_rect(left=0,top=0)
         
     def run_char_selection(self):
@@ -29,17 +29,32 @@ class Menu_char(Menu):
             self.menu_char_text(100, 'CHOOSE', COLOR_TITLE, ((WIN_WIDTH/2), 100))
             self.menu_char_text(100, 'CHARACTER', COLOR_TITLE, ((WIN_WIDTH/2), 225))
             
-            option_width = 500  # largura "reservada" pra cada opção
+            
+            option_width = 500  # largura pra cada opção
             total_width = len(CHAR_OPTION) * option_width
             start_x = (1600 - total_width) / 2  # centraliza no meio da tela
+            
 
             for i in range(len(CHAR_OPTION)):
                 x = start_x + option_width * i + option_width // 2
                 y = 850  # altura fixa
+
+
+                image_char_origin = pygame.image.load(f'./assets/img/Perso{i+1}_menu.png').convert_alpha()
+                image_char = None
+
                 if i == char_option:
                     self.menu_text(60, CHAR_OPTION[i], COLOR_TITLE, (x, y))
+                    image_char = pygame.transform.scale(image_char_origin, (250, 450))
                 else:
                     self.menu_text(60, CHAR_OPTION[i], COLOR_MENU, (x, y))
+                    image_char = pygame.transform.scale(image_char_origin, (250, 450))
+
+
+                image_rect = image_char.get_rect(centerx=x, bottom=y - 30)
+                self.window.blit(image_char, image_rect)  
+
+
             pygame.display.flip()
 
             #check events

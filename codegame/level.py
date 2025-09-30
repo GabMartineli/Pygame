@@ -1,6 +1,9 @@
 #!/usr/bin/python
 # -*- coding: utf-8 -*-
 
+from codegame.entity import Entity
+
+
 class Level:
     def __init__(self, window, name):
         self.window = window

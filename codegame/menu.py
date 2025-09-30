@@ -7,7 +7,7 @@ from codegame.const import COLOR_MENU, COLOR_TITLE, MENU_OPTION, WIN_WIDTH
 class Menu:
     def __init__(self, window):
         self.window = window
-        self.surf = pygame.image.load('./assets/Battleground4.png')
+        self.surf = pygame.image.load('./assets/img/Battleground4.png')
         self.rect = self.surf.get_rect(left=0,top=0)
         
     def run(self):
