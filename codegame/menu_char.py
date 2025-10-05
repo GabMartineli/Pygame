@@ -4,7 +4,7 @@
 from tkinter.font import Font
 import pygame
 from codegame.menu import Menu 
-from codegame.const import CHAR_OPTION, COLOR_MENU, COLOR_TITLE, MENU_OPTION, WIN_HEIGHT, WIN_WIDTH
+from codegame.const import MENU_CHAR_OPTION, COLOR_MENU, COLOR_TITLE, MENU_OPTION, WIN_HEIGHT, WIN_WIDTH
 
 class Menu_char(Menu):
     def __init__(self, window):
@@ -31,11 +31,11 @@ class Menu_char(Menu):
             
             
             option_width = 500  # largura pra cada opção
-            total_width = len(CHAR_OPTION) * option_width
+            total_width = len(MENU_CHAR_OPTION) * option_width
             start_x = (1600 - total_width) / 2  # centraliza no meio da tela
             
 
-            for i in range(len(CHAR_OPTION)):
+            for i in range(len(MENU_CHAR_OPTION)):
                 x = start_x + option_width * i + option_width // 2
                 y = 850  # altura fixa
 
@@ -44,10 +44,10 @@ class Menu_char(Menu):
                 image_char = None
 
                 if i == char_option:
-                    self.menu_text(60, CHAR_OPTION[i], COLOR_TITLE, (x, y))
+                    self.menu_text(60, MENU_CHAR_OPTION[i], COLOR_TITLE, (x, y))
                     image_char = pygame.transform.scale(image_char_origin, (250, 450))
                 else:
-                    self.menu_text(60, CHAR_OPTION[i], COLOR_MENU, (x, y))
+                    self.menu_text(60, MENU_CHAR_OPTION[i], COLOR_MENU, (x, y))
                     image_char = pygame.transform.scale(image_char_origin, (250, 450))
 
 
@@ -67,7 +67,7 @@ class Menu_char(Menu):
 
                 if event.type == pygame.KEYDOWN:
                     if event.key == pygame.K_RIGHT:
-                        if char_option < len(CHAR_OPTION) - 1:
+                        if char_option < len(MENU_CHAR_OPTION) - 1:
                             char_option +=1
                         else:
                             char_option = 0
@@ -76,9 +76,9 @@ class Menu_char(Menu):
                         if char_option > 0:
                             char_option -= 1
                         else:
-                            char_option = len(CHAR_OPTION) - 1
+                            char_option = len(MENU_CHAR_OPTION) - 1
                     if event.key == pygame.K_RETURN:
-                        return CHAR_OPTION[char_option]
+                        return MENU_CHAR_OPTION[char_option]
 
     def menu_char_text(self, text_size: int, text: str, text_color: tuple, text_center_pos: tuple):
         text_font = pygame.font.Font("assets/fonts/Nosifer-Regular.ttf", text_size)
