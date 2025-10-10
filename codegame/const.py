@@ -1,10 +1,13 @@
 #C
+import pygame
+
+
 COLOR_TITLE = (139, 0, 0)
 COLOR_MENU = (255, 255, 255)
 MENU_CHAR_OPTION = (
-    'BONGO',
-    'MONGO',
-    'LONGO'
+    'Player 1',
+    'Player 2',
+    'Player 3'
 )
 
 #E
@@ -15,8 +18,11 @@ ENTITY_SPEED = {
     'level1Bg3': 3,
     'level1Bg4': 4,
     'level1Bg5': 5,
-    'level1Bg6': 6,
+    'Player1': 3,
+    'Enemy1': 3
 }
+
+EVENT_ENEMY = pygame.USEREVENT + 1
 
 #M
 MENU_OPTION = (

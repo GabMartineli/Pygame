@@ -1,13 +1,16 @@
 #!/usr/bin/python
 # -*- coding: utf-8 -*-
 
+from codegame.const import ENTITY_SPEED, WIN_WIDTH
 from codegame.entity import Entity
 
 
 class Enemy(Entity):
-    def __init__(self, vida, dano):
-        self.vida = vida
-        self.dano = dano
+    def __init__(self, name: str, position: tuple):
+        super().__init__(name, position)
 
     def move(self, ):
+        self.rect.centerx -= ENTITY_SPEED[self.name]
+        if self.rect.right <= 0:
+            self.rect.left = WIN_WIDTH
         pass
