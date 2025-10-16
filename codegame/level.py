@@ -3,9 +3,12 @@
 
 import sys
 import pygame
-from codegame.const import COLOR_MENU, COLOR_TITLE, EVENT_ENEMY, WIN_HEIGHT
+from codegame.const import COLOR_LIFE, COLOR_MENU, COLOR_SCORE, COLOR_TITLE, EVENT_ENEMY, WIN_HEIGHT
+from codegame.enemy import Enemy
 from codegame.entity import Entity
 from codegame.entityFactory import EntityFactory
+from codegame.entityMediator import EntityMediator
+from codegame.player import Player
 
 
 class Level:
@@ -23,12 +26,25 @@ class Level:
         pygame.mixer.music.play(loops=-1, start=1.5, fade_ms=0)
         pygame.mixer.music.set_volume(0.3)
         clock = pygame.time.Clock()
-
+        
         while True:
             clock.tick(60)
+            
             for i in self.entity_list:
                 self.window.blit(source=i.surf, dest=i.rect)
                 i.move()
+                if isinstance(i,(Player, Enemy)):
+                    shoot_object = i.shoot()
+                    if shoot_object is not None:
+                        self.entity_list.append(shoot_object)
+
+                if i.name == 'Player1':
+                    if i.health <= 120:
+                        self.level_text(12, f'Player 1 - Health: {i.health :.0f}', COLOR_TITLE, (125, 20))
+                    else:
+                        self.level_text(12, f'Player 1 - Health: {i.health :.0f}', COLOR_LIFE, (125, 20))
+
+                    self.level_text(12, f'Player 1 - Score: {i.score :.0f}', COLOR_SCORE, (125, 40))
 
             for event in pygame.event.get():
                 if event.type == pygame.QUIT:
@@ -37,10 +53,12 @@ class Level:
                 if event.type == EVENT_ENEMY:
                     self.entity_list.extend(EntityFactory.get_entity('Enemy1'))
 
-
+                  
             self.level_text(18, f'fps: {clock.get_fps() :.0f}', COLOR_MENU, (50, WIN_HEIGHT - 40))
             self.level_text(18, f'Inimigos: {len(self.entity_list)}', COLOR_MENU, (80, WIN_HEIGHT - 20))
             pygame.display.flip()
+            EntityMediator.verify_collision(self.entity_list)
+            EntityMediator.verify_health(self.entity_list)
         pass
 
 

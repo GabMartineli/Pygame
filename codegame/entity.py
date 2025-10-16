@@ -5,6 +5,8 @@ from abc import ABC, abstractmethod
 
 import pygame
 
+from codegame.const import ENTITY_ATTACK, ENTITY_HEALTH, ENTITY_SCORE
+
 
 class Entity(ABC):
     def __init__(self, name:str, position:tuple):
@@ -12,6 +14,12 @@ class Entity(ABC):
         self.surf = pygame.image.load('./assets/img/' + name + '.png').convert_alpha()
         self.rect = self.surf.get_rect(left=position[0], top=position[1])
         self.speed = 0
+        self.health = ENTITY_HEALTH[self.name]
+        self.attack = ENTITY_ATTACK[self.name]
+        self.score = ENTITY_SCORE[self.name]
+        self.last_dmg = 'None'
+
+
 
     @abstractmethod
     def move(self, ):

@@ -1,16 +1,24 @@
 #!/usr/bin/python
 # -*- coding: utf-8 -*-
 
-from codegame.const import ENTITY_SPEED, WIN_WIDTH
+import pygame
+from codegame.const import ENTITY_SHOT_DELAY, ENTITY_SPEED
+from codegame.enemyShot import EnemyShot
 from codegame.entity import Entity
 
 
 class Enemy(Entity):
     def __init__(self, name: str, position: tuple):
         super().__init__(name, position)
+        self.shot_delay = ENTITY_SHOT_DELAY[self.name]
 
     def move(self, ):
         self.rect.centerx -= ENTITY_SPEED[self.name]
-        if self.rect.right <= 0:
-            self.rect.left = WIN_WIDTH
-        pass
+    
+    def shoot(self):
+        self.shot_delay -= 1
+        
+        if self.shot_delay <= 0:
+            self.shot_delay = ENTITY_SHOT_DELAY[self.name]
+            return EnemyShot(name=f'{self.name}Shot', position=(self.rect.centerx, self.rect.centery))
+       
