@@ -2,12 +2,12 @@
 # -*- coding: utf-8 -*-
 import pygame
 
-from codegame.const import COLOR_MENU, COLOR_TITLE, MENU_OPTION, WIN_WIDTH
+from codegame.const import COLOR_CYAN, COLOR_MENU, COLOR_PURPLE, COLOR_SCORE, COLOR_SLIME, COLOR_TITLE, MENU_OPTION, WIN_WIDTH
 
 class Menu:
     def __init__(self, window):
         self.window = window
-        self.surf = pygame.image.load('./assets/img/Battleground4.png').convert_alpha()
+        self.surf = pygame.image.load('./assets/img/background_menu.png').convert_alpha()
         self.rect = self.surf.get_rect(left=0,top=0)
         
     def run(self):
@@ -23,14 +23,15 @@ class Menu:
             #Menu title and options
             
             self.window.blit(source=self.surf, dest=self.rect)
-            self.menu_text(120, 'DEATH', COLOR_TITLE, ((WIN_WIDTH/2), 125))
-            self.menu_text(120, 'SHOOTER', COLOR_TITLE, ((WIN_WIDTH/2), 250))
+            self.menu_text(80, 'WIZARDS', COLOR_MENU, ((WIN_WIDTH/2), 70))
+            self.menu_text(60, 'VS', COLOR_MENU, ((WIN_WIDTH/2), 140))
+            self.menu_text(80, 'SLIME', COLOR_MENU, ((WIN_WIDTH/2), 210))
             
             for i in range(len(MENU_OPTION)):
                 if i == menu_option:
-                    self.menu_text(70, MENU_OPTION[i], COLOR_TITLE, ((WIN_WIDTH/2), 570 + 100 * i))
+                    self.menu_text(60, MENU_OPTION[i], COLOR_TITLE, ((WIN_WIDTH/2), 500 + 100 * i))
                 else:
-                    self.menu_text(70, MENU_OPTION[i], COLOR_MENU, ((WIN_WIDTH/2), 570 + 100 * i))
+                    self.menu_text(60, MENU_OPTION[i], COLOR_MENU, ((WIN_WIDTH/2), 500 + 100 * i))
             pygame.display.flip()
 
             #check events
