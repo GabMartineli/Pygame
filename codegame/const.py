@@ -26,6 +26,12 @@ ENTITY_SPEED = {
     'level1Bg5': 5,
     'level1Bg6': 6,
     'level1Bg7': 7,
+    'level2Bg0': 0,
+    'level2Bg1': 1,
+    'level2Bg2': 2,
+    'level2Bg3': 3,
+    'level2Bg4': 4,
+    'level2Bg5': 5,
     'Player1': 8,
     'Player1Shot': 13,
     'Player2': 8,
@@ -49,6 +55,12 @@ ENTITY_HEALTH = {
     'level1Bg5': 999,
     'level1Bg6': 999,
     'level1Bg7': 999,
+    'level2Bg0': 999,
+    'level2Bg1': 999,
+    'level2Bg2': 999,
+    'level2Bg3': 999,
+    'level2Bg4': 999,
+    'level2Bg5': 999,
     'Player1': 300,
     'Player1Shot': 1,
     'Player2': 300,
@@ -67,9 +79,9 @@ ENTITY_SHOT_DELAY = {
     'Player1': 30,
     'Player2': 30,
     'Player3': 30,
-    'Enemy1': 35,
-    'Enemy2': 35,
-    'Enemy3': 35,
+    'Enemy1': 45,
+    'Enemy2': 45,
+    'Enemy3': 45,
     
 }
 
@@ -82,6 +94,12 @@ ENTITY_ATTACK = {
     'level1Bg5': 0,
     'level1Bg6': 0,
     'level1Bg7': 0,
+    'level2Bg0': 0,
+    'level2Bg1': 0,
+    'level2Bg2': 0,
+    'level2Bg3': 0,
+    'level2Bg4': 0,
+    'level2Bg5': 0,
     'Player1': 1,
     'Player1Shot': 40,
     'Player2': 1,
@@ -105,6 +123,12 @@ ENTITY_SCORE = {
     'level1Bg5': 0,
     'level1Bg6': 0,
     'level1Bg7': 0,
+    'level2Bg0': 0,
+    'level2Bg1': 0,
+    'level2Bg2': 0,
+    'level2Bg3': 0,
+    'level2Bg4': 0,
+    'level2Bg5': 0,
     'Player1': 0,
     'Player1Shot': 0,
     'Player2': 0,
@@ -120,6 +144,7 @@ ENTITY_SCORE = {
 }
 
 EVENT_ENEMY = pygame.USEREVENT + 1
+EVENT_TIMEOUT = pygame.USEREVENT + 2
 
 #M
 MENU_OPTION = (
@@ -128,6 +153,30 @@ MENU_OPTION = (
     'EXIT'
 )
 
+#S
+
+#T
+TIMEOUT_STEP = 100
+TIMEOUT_LEVEL = 20000
+
 # W
 WIN_WIDTH = 1400
 WIN_HEIGHT = 820
+
+#S
+SCORE_POS = {
+    'Title': (WIN_WIDTH / 2, 50),
+    'EnterName': (WIN_WIDTH / 2, 150),
+    'Label': (WIN_WIDTH / 3 + 210, 750),
+    'Name': (WIN_WIDTH / 2, 350),
+    0: (WIN_WIDTH / 2, 150),
+    1: (WIN_WIDTH / 2, 200),
+    2: (WIN_WIDTH / 2, 250),
+    3: (WIN_WIDTH / 2, 300),
+    4: (WIN_WIDTH / 2, 350),
+    5: (WIN_WIDTH / 2, 400),
+    6: (WIN_WIDTH / 2, 450),
+    7: (WIN_WIDTH / 2, 500),
+    8: (WIN_WIDTH / 2, 550),
+    9: (WIN_WIDTH / 2, 600),
+}

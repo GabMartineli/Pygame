@@ -20,6 +20,8 @@ class Menu:
         
         while True:
 
+            self.window.fill((0, 0, 0))
+
             #Menu title and options
             
             self.window.blit(source=self.surf, dest=self.rect)

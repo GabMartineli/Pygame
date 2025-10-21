@@ -22,17 +22,15 @@ class Menu_char(Menu):
         char_option = 0
         
         while True:
-
-            #Menu title and options
             
             self.window.blit(source=self.surf, dest=self.rect)
             self.menu_char_text(80, 'CHOOSE', COLOR_TITLE, ((WIN_WIDTH/2), 100))
             self.menu_char_text(80, 'CHARACTER', COLOR_TITLE, ((WIN_WIDTH/2), 200))
             
             
-            option_width = 350  # largura pra cada opção
+            option_width = 350  
             total_width = len(MENU_CHAR_OPTION) * option_width
-            start_x = (1400 - total_width) / 2  # centraliza no meio da tela
+            start_x = (1400 - total_width) / 2  
             
 
             for i in range(len(MENU_CHAR_OPTION)):
@@ -57,7 +55,6 @@ class Menu_char(Menu):
 
             pygame.display.flip()
 
-            #check events
 
             for event in pygame.event.get():
                 if event.type == pygame.QUIT:
